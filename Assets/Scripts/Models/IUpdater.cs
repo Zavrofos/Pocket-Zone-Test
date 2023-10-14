@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Models
 {
-    public interface IUpdatable 
+    public interface IUpdater 
     {
         void Update(float deltaTime);
     }
