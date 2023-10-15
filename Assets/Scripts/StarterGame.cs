@@ -1,5 +1,7 @@
-using Assets.Scripts.Controllers;
 using Assets.Scripts.Models;
+using Assets.Scripts.Presenters;
+using Assets.Scripts.Updaters;
+using Assets.Scripts.Views;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -29,6 +31,7 @@ namespace Assets.Scripts
             _updaters = new List<IUpdater>
             {
                 new CharacterMovementUpdater(_gameModel, _gameView.PlayerView),
+                new CameraMoveUpdater(_gameModel, _gameView.CameraView)
             };
         }
 

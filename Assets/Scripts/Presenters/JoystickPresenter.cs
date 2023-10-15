@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.EnhancedTouch;
 using ETouch = UnityEngine.InputSystem.EnhancedTouch;
 
-namespace Assets.Scripts.Controllers
+namespace Assets.Scripts.Presenters
 {
 
     public class JoystickPresenter : IPresenter
