@@ -5,6 +5,6 @@ namespace Assets.Scripts.Views
 {
     public class PlayerView : MonoBehaviour
     {
-        public CharacterController CharacterController;
+        public Rigidbody2D Rigidbody;
     }
 }
