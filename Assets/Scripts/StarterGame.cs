@@ -31,6 +31,7 @@ namespace Assets.Scripts
             _updaters = new List<IUpdater>
             {
                 new CharacterMovementUpdater(_gameModel, _gameView.PlayerView),
+                new CameraMoveUpdater(_gameModel, _gameView.CameraView)
             };
         }
 

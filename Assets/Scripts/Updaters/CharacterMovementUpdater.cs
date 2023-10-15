@@ -19,6 +19,8 @@ namespace Assets.Scripts.Updaters
         {
             Vector2 scaledMovement = _gameModel.Player.Speed * deltaTime * _gameModel.Input.Direction;
             _view.CharacterController.Move(scaledMovement);
+
+            _gameModel.Player.Position = _view.transform.position;
         }
     }
 }

@@ -11,5 +11,6 @@ namespace Assets.Scripts.Views
     {
         public JostickView Joystick;
         public PlayerView PlayerView;
+        public CameraView CameraView;
     }
 }
