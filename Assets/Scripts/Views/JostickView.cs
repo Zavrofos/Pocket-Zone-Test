@@ -10,6 +10,6 @@ namespace Assets.Scripts.Views
         public RectTransform RectTransform;
         public RectTransform Knob;
         public Finger MovementFinger;
-        public Vector2 JoystickSize;
+        public Vector2 JoystickSize = new Vector2(100, 100);
     }
 }

@@ -1,5 +1,7 @@
-using Assets.Scripts.Controllers;
 using Assets.Scripts.Models;
+using Assets.Scripts.Presenters;
+using Assets.Scripts.Updaters;
+using Assets.Scripts.Views;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

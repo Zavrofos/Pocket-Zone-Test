@@ -484,7 +484,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CharacterController: {fileID: 844272669}
-  Speed: 3
 --- !u!1 &1315709743
 GameObject:
   m_ObjectHideFlags: 0
@@ -653,4 +652,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RectTransform: {fileID: 2137088990}
   Knob: {fileID: 1315709744}
-  JoystickSize: {x: 0, y: 0}
+  JoystickSize: {x: 100, y: 100}

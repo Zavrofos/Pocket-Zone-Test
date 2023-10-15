@@ -3,8 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameView : MonoBehaviour
+
+
+namespace Assets.Scripts.Views
 {
-    public JostickView Joystick;
-    public PlayerView PlayerView;
+    public class GameView : MonoBehaviour
+    {
+        public JostickView Joystick;
+        public PlayerView PlayerView;
+    }
 }

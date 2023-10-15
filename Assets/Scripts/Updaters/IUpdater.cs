@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts.Models
+namespace Assets.Scripts.Updaters
 {
     public interface IUpdater 
     {
