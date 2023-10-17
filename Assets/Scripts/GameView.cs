@@ -1,7 +1,4 @@
-using Assets.Scripts.Camera;
-using Assets.Scripts.Enemy;
-using Assets.Scripts.Input;
-using Assets.Scripts.Player;
+using Assets.Scripts.Views;
 using System.Collections.Generic;
 using UnityEngine;
 

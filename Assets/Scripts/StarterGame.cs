@@ -1,7 +1,5 @@
-using Assets.Scripts.Camera;
-using Assets.Scripts.Enemy;
-using Assets.Scripts.Input;
-using Assets.Scripts.Player;
+using Assets.Scripts.Presenters;
+using Assets.Scripts.Updaters;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,7 +30,10 @@ namespace Assets.Scripts
             _updaters = new List<IUpdater>
             {
                 new CharacterMovementUpdater(_gameModel, _gameView.PlayerView),
-                new CameraMoveUpdater(_gameModel, _gameView.CameraView)
+                new CameraMoveUpdater(_gameModel, _gameView.CameraView),
+                new IdleStateUpdater(_gameModel, _gameView),
+                new FinderTarget(_gameModel, _gameView),
+                new PersuitOfPlayerUpdater(_gameModel, _gameView)
             };
         }
 

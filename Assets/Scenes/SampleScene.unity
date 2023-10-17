@@ -3219,7 +3219,7 @@ GameObject:
   - component: {fileID: 844272672}
   - component: {fileID: 844272674}
   - component: {fileID: 844272673}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TestPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

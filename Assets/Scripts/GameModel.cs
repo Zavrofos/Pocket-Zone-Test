@@ -1,6 +1,4 @@
-﻿using Assets.Scripts.Enemy;
-using Assets.Scripts.Input;
-using Assets.Scripts.Player;
+﻿using Assets.Scripts.Models;
 using System;
 
 namespace Assets.Scripts
