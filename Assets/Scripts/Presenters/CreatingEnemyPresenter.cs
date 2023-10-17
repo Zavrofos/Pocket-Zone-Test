@@ -1,5 +1,6 @@
 ﻿using Assets.Scripts.Models;
 using Assets.Scripts.Views;
+using Assets.Scripts.Enums;
 using UnityEngine;
 
 namespace Assets.Scripts.Presenters
@@ -33,13 +34,22 @@ namespace Assets.Scripts.Presenters
             {
                 if(enemyPrefab.Type == enemy.Type)
                 {
-                    GameObject enemyView = GameObject.Instantiate(enemyPrefab.Prefab, enemy.InitialPosition, Quaternion.identity);
-                    IEnemyView enemyV = enemyView.GetComponent<IEnemyView>();
-                    enemyV.Id = enemy.Id;
-                    _gameView.ActiveEnemy.Add(enemyV.Id, enemyV);
+                    GameObject enemyObj = Object.Instantiate(enemyPrefab.Prefab, enemy.InitialPosition, Quaternion.identity);
+                    IEnemyView enemyView = enemyObj.GetComponent<IEnemyView>();
+                    enemyView.Id = enemy.Id;
+                    _gameView.ActiveEnemy.Add(enemyView.Id, enemyView);
 
+                    if(enemyPrefab.Type == EnemyType.EnemyOne)
+                    {
+                        EnemyOneView enemyOneView = (EnemyOneView)enemyView;
+                        EnemyOne enemyOne = (EnemyOne)enemy;
+                        enemyOne.points = new Vector3[enemyOneView.PatrollPoints.Length];
 
-
+                        for(int i = 0; i < enemyOne.points.Length; i++)
+                        {
+                            enemyOne.points[i] = enemyOneView.PatrollPoints[i].position;
+                        }
+                    }
 
                     break;
                 }

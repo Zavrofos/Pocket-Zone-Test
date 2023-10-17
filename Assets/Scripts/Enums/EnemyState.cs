@@ -3,7 +3,6 @@
     public enum EnemyState 
     {
         Idle,
-        Patrolling,
         Attack
     }
 }

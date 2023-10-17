@@ -17,34 +17,7 @@ namespace Assets.Scripts.Updaters
             _gameModel = gameModel;
             _gameView = gameView;
         }
-
-        //public void Update(float deltaTime)
-        //{
-        //    foreach(var enemy in _gameModel.EnemyCollection.ActiveEnemy)
-        //    {
-        //        if(enemy.Value.CurrentState != EnemyState.Patrolling)
-        //        {
-        //            continue;
-        //        }
-
-        //        EnemyTwoView enemyPat = (EnemyTwoView)_gameView.ActiveEnemy[enemy.Value.Id];
-        //        if (Vector3.Distance(enemyPat.transform.position, enemyPat.points[enemyPat.currentPoint]) > 0.3f)
-        //        {
-        //            enemyPat.currentDirection = (enemyPat.points[enemyPat.currentPoint] - enemyPat.transform.position).normalized;
-        //            enemyPat.Rigidbody.velocity = enemyPat.currentDirection * enemy.Value.Speed;
-        //        }
-        //        else if (enemyPat.currentPoint == enemyPat.points.Length - 1)
-        //        {
-        //            enemyPat.currentPoint = 0;
-        //        }
-        //        else
-        //        {
-        //            enemyPat.currentPoint++;
-        //        }
-        //    }
-        //}
-
-
+        
         public void Update(float deltaTime)
         {
             foreach (var enemy in _gameModel.EnemyCollection.ActiveEnemy)
@@ -56,25 +29,26 @@ namespace Assets.Scripts.Updaters
 
                 if(enemy.Value is EnemyOne)
                 {
-
-                }
-
-                if(enemy.Value is EnemyTwo)
-                {
-                    EnemyTwoView enemyView = (EnemyTwoView)_gameView.ActiveEnemy[enemy.Value.Id];
-                    if (Vector3.Distance(enemyView.transform.position, enemyView.points[enemyView.currentPoint]) > 0.3f)
+                    EnemyOneView enemyOneView = (EnemyOneView)_gameView.ActiveEnemy[enemy.Value.Id];
+                    EnemyOne enemyOne = (EnemyOne)enemy.Value;
+                    if (Vector3.Distance(enemyOneView.transform.position, enemyOne.points[enemyOne.currentPoint]) > 0.3f)
                     {
-                        enemyView.currentDirection = (enemyView.points[enemyView.currentPoint] - enemyView.transform.position).normalized;
-                        enemyView.Rigidbody.velocity = enemyView.currentDirection * enemy.Value.Speed;
+                        enemyOne.currentDirection = (enemyOne.points[enemyOne.currentPoint] - enemyOneView.transform.position).normalized;
+                        enemyOneView.Rigidbody.velocity = enemyOne.currentDirection * enemyOne.Speed;
                     }
-                    else if (enemyView.currentPoint == enemyView.points.Length - 1)
+                    else if (enemyOne.currentPoint == enemyOne.points.Length - 1)
                     {
-                        enemyView.currentPoint = 0;
+                        enemyOne.currentPoint = 0;
                     }
                     else
                     {
-                        enemyView.currentPoint++;
+                        enemyOne.currentPoint++;
                     }
+                }
+
+                if (enemy.Value is EnemyTwo)
+                {
+
                 }
             }
         }
