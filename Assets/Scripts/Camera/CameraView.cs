@@ -1,8 +1,6 @@
-﻿using System.Collections;
-using TMPro;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Views
+namespace Assets.Scripts.Camera
 {
     public class CameraView : MonoBehaviour
     {

@@ -1,9 +1,8 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Models
+namespace Assets.Scripts.Player
 {
-    public class Player
+    public class PlayerModel
     {
         public Vector3 Position;
         public float Health;

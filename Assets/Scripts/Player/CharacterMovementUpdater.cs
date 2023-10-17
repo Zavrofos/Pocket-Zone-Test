@@ -1,8 +1,6 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Views;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Updaters
+namespace Assets.Scripts.Player
 {
     public class CharacterMovementUpdater : IUpdater
     {

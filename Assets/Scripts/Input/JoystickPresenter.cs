@@ -1,12 +1,8 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Views;
-using System.Collections;
-using UnityEngine;
-using UnityEngine.InputSystem;
+﻿using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using ETouch = UnityEngine.InputSystem.EnhancedTouch;
 
-namespace Assets.Scripts.Presenters
+namespace Assets.Scripts.Input
 {
 
     public class JoystickPresenter : IPresenter

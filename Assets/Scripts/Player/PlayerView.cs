@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Views
+namespace Assets.Scripts.Player
 {
     public class PlayerView : MonoBehaviour
     {

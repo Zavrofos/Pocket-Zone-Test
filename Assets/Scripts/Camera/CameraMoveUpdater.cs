@@ -1,9 +1,6 @@
-﻿using Assets.Scripts.Models;
-using Assets.Scripts.Views;
-using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Assets.Scripts.Updaters
+namespace Assets.Scripts.Camera
 {
     public class CameraMoveUpdater : IUpdater
     {
