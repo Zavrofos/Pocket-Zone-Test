@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 
-namespace Assets.Scripts.Views
+namespace Assets.Scripts.Input
 {
     public class JostickView : MonoBehaviour
     {

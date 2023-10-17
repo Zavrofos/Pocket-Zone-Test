@@ -1,8 +1,7 @@
-using Assets.Scripts.Models;
-using Assets.Scripts.Presenters;
-using Assets.Scripts.Updaters;
-using Assets.Scripts.Views;
-using System.Collections;
+using Assets.Scripts.Camera;
+using Assets.Scripts.Enemy;
+using Assets.Scripts.Input;
+using Assets.Scripts.Player;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +25,8 @@ namespace Assets.Scripts
             _presenters = new List<IPresenter>
             {
                 new JoystickPresenter(_gameModel, _gameView.Joystick),
+                new EnemyInitializePresenter(_gameModel, _gameView),
+                new CreatingEnemyPresenter(_gameModel, _gameView)
             };
 
             _updaters = new List<IUpdater>
@@ -33,6 +34,11 @@ namespace Assets.Scripts
                 new CharacterMovementUpdater(_gameModel, _gameView.PlayerView),
                 new CameraMoveUpdater(_gameModel, _gameView.CameraView)
             };
+        }
+
+        private void Start()
+        {
+            _gameModel.Initialize();
         }
 
         private void Update()
