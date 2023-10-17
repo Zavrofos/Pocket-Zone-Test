@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Assets.Scripts.Enemy
 {
@@ -30,14 +31,26 @@ namespace Assets.Scripts.Enemy
                 _gameModel.EnemyCollection.PositiontsToSpawnEnemies.Add(point.position);
             }
 
-            for(int i = 0; i < 3; i++)
-            {
-                var positiontsToSpawnEnemies = _gameModel.EnemyCollection.PositiontsToSpawnEnemies;
-                var index = Random.Range(0, positiontsToSpawnEnemies.Count);
-                var position = positiontsToSpawnEnemies[index];
-                positiontsToSpawnEnemies.Remove(position);
-                _gameModel.EnemyCollection.CreateEnemy("Enemy", position);
-            }
+            //for(int i = 0; i < 3; i++)
+            //{
+            //    var positiontsToSpawnEnemies = _gameModel.EnemyCollection.PositiontsToSpawnEnemies;
+            //    var index = Random.Range(0, positiontsToSpawnEnemies.Count);
+            //    var position = positiontsToSpawnEnemies[index];
+            //    positiontsToSpawnEnemies.Remove(position);
+            //    _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyPatrolling, position);
+            //}
+            _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyPatrolling, GetFreePosition());
+            _gameModel.EnemyCollection.CreateEnemy(EnemyType.Enemy, GetFreePosition());
+            _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyPatrolling, GetFreePosition());
+        }
+
+        private Vector3 GetFreePosition()
+        {
+            var positiontsToSpawnEnemies = _gameModel.EnemyCollection.PositiontsToSpawnEnemies;
+            var index = Random.Range(0, positiontsToSpawnEnemies.Count);
+            var position = positiontsToSpawnEnemies[index];
+            positiontsToSpawnEnemies.Remove(position);
+            return position;
         }
     }
 }

@@ -16,11 +16,11 @@ namespace Assets.Scripts
         public List<Transform> PositionsToSpawnEnemies;
         public List<EnemyPrefab> EnemyPrefabs;
 
-        public Dictionary<int, EnemyView> ActiveEnemy;
+        public Dictionary<int, IEnemyView> ActiveEnemy;
 
         private void Start()
         {
-            ActiveEnemy = new Dictionary<int, EnemyView>();
+            ActiveEnemy = new Dictionary<int, IEnemyView>();
         }
     }
 }

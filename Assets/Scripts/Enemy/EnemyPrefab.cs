@@ -8,7 +8,7 @@ namespace Assets.Scripts.Enemy
     [Serializable]
     public class EnemyPrefab
     {
-        public string Type;
+        public EnemyType Type;
         public GameObject Prefab;
     }
 }

@@ -1,18 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts.Enemy
 {
-    public class Enemy 
+    public class Enemy : IEnemy
     {
-        public readonly string Type;
-        public readonly int Id;
-        public Vector3 InitialPosition;
+        public EnemyType Type => _type;
+        public int Id => _id;
+        public Vector3 InitialPosition => _initialPosition;
 
-        public Enemy(int id, Vector3 initialPosition, string type)
+        private EnemyType _type;
+        private int _id;
+        private Vector3 _initialPosition;
+
+        public Enemy(int id, Vector3 initialPosition, EnemyType type)
         {
-            Id = id;
-            InitialPosition = initialPosition;
-            Type = type;
+            _type = type;
+            _id = id;
+            _initialPosition = initialPosition;
         }
     }
 }
