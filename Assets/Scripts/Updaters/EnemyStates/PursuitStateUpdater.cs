@@ -45,7 +45,8 @@ namespace Assets.Scripts.Updaters
                 }
 
                 Vector3 direction = enemy.TargetPersuit.position - enemy.CurrentPosition;
-                enemyView.Rigidbody.velocity = direction * enemy.Speed;
+                enemy.SetDirection(direction);
+                enemyView.Rigidbody.velocity = enemy.currentDirection * enemy.Speed;
                 enemy.CurrentPosition = enemyView.transform.position;
             }
         }

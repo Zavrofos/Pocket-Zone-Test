@@ -621,7 +621,7 @@ MonoBehaviour:
   - {fileID: 1853887276}
   EnemyPrefabs:
   - Type: 0
-    Prefab: {fileID: 7806468212638983961, guid: df6cbaa2b29ba994d8f2f9bf0286b0c4, type: 3}
+    Prefab: {fileID: 4979390922028136343, guid: 2243eb514d8659e4db4eb58ec8ac6e52, type: 3}
 --- !u!114 &705403607
 MonoBehaviour:
   m_ObjectHideFlags: 0

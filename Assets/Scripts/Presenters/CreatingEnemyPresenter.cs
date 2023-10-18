@@ -45,7 +45,8 @@ namespace Assets.Scripts.Presenters
 
                     List<IPresenter> presenters = new()
                     {
-                        new EnemyAttackPresenter(enemy, enemyView, _gameView)
+                        new EnemyAttackPresenter(enemy, enemyView, _gameView),
+                        new EnemyFlipPresenter(enemy, enemyView)
                     };
                     _enemiesPresenters.Add(enemy, presenters);
 
@@ -64,11 +65,6 @@ namespace Assets.Scripts.Presenters
             _gameModel.SpawnPointsCollection.ReturnFreeposition(enemy.InitialPosition);
             _gameView.ActiveEnemy[enemy.Id].Destroy();
             _gameView.ActiveEnemy.Remove(enemy.Id);
-
-            if(!_enemiesPresenters.ContainsKey(enemy))
-            {
-                return;
-            }
 
             foreach(var presenter in _enemiesPresenters[enemy])
             {

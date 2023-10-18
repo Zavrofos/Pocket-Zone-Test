@@ -8,13 +8,11 @@ namespace Assets.Scripts.Models
     public class SpawnPointsCollection
     {
         public Dictionary<Vector3, List<Vector3>> SpawnPointsAndPatrolling;
-        public Dictionary<Vector3, List<Vector3>> OccupiedSpawnPointsAndPatrolling;
         private List<Vector3> _keys;
 
         public SpawnPointsCollection()
         {
             SpawnPointsAndPatrolling = new ();
-            OccupiedSpawnPointsAndPatrolling = new ();
             _keys = new();
         }
 

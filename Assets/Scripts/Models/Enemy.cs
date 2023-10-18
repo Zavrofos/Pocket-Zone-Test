@@ -1,8 +1,10 @@
 ﻿using Assets.Scripts.Enums;
+using Assets.Scripts.Views;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.EventSystems.EventTrigger;
 
 namespace Assets.Scripts.Models
 { 
@@ -36,6 +38,7 @@ namespace Assets.Scripts.Models
         // Attack
         public bool IsAttacking;
         public event Action<Transform> Attacked;
+        public event Action<Vector3> DirectionAssigned;
 
         public Enemy(int id, Vector3 initialPosition, EnemyType type)
         {
@@ -57,6 +60,12 @@ namespace Assets.Scripts.Models
                 return;
             }
             Attacked?.Invoke(TargetPersuit);
+        }
+
+        public void SetDirection(Vector3 newDirection)
+        {
+            currentDirection = newDirection;
+            DirectionAssigned?.Invoke(currentDirection);
         }
     }
 }

@@ -38,11 +38,12 @@ namespace Assets.Scripts.Updaters
                     return;
                 }
 
-                EnemyView enemyOneView = _gameView.ActiveEnemy[enemy.Id];
-                if (Vector3.Distance(enemyOneView.transform.position, enemy.points[enemy.currentPoint]) > 0.3f)
+                EnemyView enemyView = _gameView.ActiveEnemy[enemy.Id];
+                if (Vector3.Distance(enemyView.transform.position, enemy.points[enemy.currentPoint]) > 0.3f)
                 {
-                    enemy.currentDirection = (enemy.points[enemy.currentPoint] - enemyOneView.transform.position).normalized;
-                    enemyOneView.Rigidbody.velocity = enemy.currentDirection * enemy.Speed;
+                    Vector3 currentDirection = (enemy.points[enemy.currentPoint] - enemyView.transform.position).normalized;
+                    enemy.SetDirection(currentDirection);
+                    enemyView.Rigidbody.velocity = enemy.currentDirection * enemy.Speed;
                 }
                 else if (enemy.currentPoint == enemy.points.Count - 1)
                 {
@@ -53,7 +54,7 @@ namespace Assets.Scripts.Updaters
                     enemy.currentPoint++;
                 }
 
-                enemy.CurrentPosition = enemyOneView.transform.position;
+                enemy.CurrentPosition = enemyView.transform.position;
             }
         }
     }

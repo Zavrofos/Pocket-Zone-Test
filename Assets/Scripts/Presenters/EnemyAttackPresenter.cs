@@ -37,11 +37,9 @@ namespace Assets.Scripts.Presenters
         private IEnumerator Attack(Transform target)
         {
             _enemy.IsAttacking = true;
-            WeaponSwordView weapon = _enemyView.Weapon;
-            weapon.gameObject.SetActive(true);
-            weapon.Animator.SetTrigger("Attack");
+            _enemyView.Animator.SetBool("IsAttack", true);
             yield return new WaitForSeconds(1);
-            weapon.gameObject.SetActive(false);
+            _enemyView.Animator.SetBool("IsAttack", false);
             yield return new WaitForSeconds(1);
             _enemy.IsAttacking = false;
         }
