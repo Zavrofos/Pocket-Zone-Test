@@ -9,6 +9,7 @@ namespace Assets.Scripts
         public JostickView Joystick;
         public PlayerView PlayerView;
         public CameraView CameraView;
+        public StarterCoroutines StarterCoroutines;
 
         public List<Transform> PositionsToSpawnEnemies;
         public List<EnemyPrefab> EnemyPrefabs;

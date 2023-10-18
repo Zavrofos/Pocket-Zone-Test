@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Enums;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,10 +13,10 @@ namespace Assets.Scripts.Models
         public Vector3 InitialPosition => _initialPosition;
         public Vector3 CurrentPosition { get => _currentPosition; set => _currentPosition = value; }
         public EnemyState CurrentState { get => _currentState; set => _currentState = value; }
-        public float Speed { get => _speed; set => _speed = value; }
+        public float Speed => _speed; 
         public Transform TargetPersuit { get => _targetPersuit; set => _targetPersuit = value; }
-        public float SearchRadiusForPersuit { get => _searchRadiusForPersuit; set => _searchRadiusForPersuit = value; }
-        public float SearchRadiusForAttack { get => _searchRadiusForAttack; set => _searchRadiusForAttack = value; }
+        public float SearchRadiusForPersuit => _searchRadiusForPersuit;
+        public float SearchRadiusForAttack => _searchRadiusForAttack;
 
         private readonly EnemyType _type;
         private readonly int _id;
@@ -27,10 +28,14 @@ namespace Assets.Scripts.Models
         private float _searchRadiusForPersuit = 4;
         private float _searchRadiusForAttack = 1f;
 
-
+        // Patrolling
         public List<Vector3> points;
         public Vector3 currentDirection;
         public int currentPoint;
+
+        // Attack
+        public bool IsAttacking;
+        public event Action<Transform> Attacked;
 
         public Enemy(int id, Vector3 initialPosition, EnemyType type)
         {
@@ -47,7 +52,11 @@ namespace Assets.Scripts.Models
 
         public void Attack(Transform target)
         {
-            Debug.Log("Attack: " + target.gameObject.name);
+            if(IsAttacking)
+            {
+                return;
+            }
+            Attacked?.Invoke(TargetPersuit);
         }
     }
 }

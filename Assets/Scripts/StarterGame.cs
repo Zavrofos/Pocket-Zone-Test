@@ -31,7 +31,6 @@ namespace Assets.Scripts
             {
                 new CharacterMovementUpdater(_gameModel, _gameView.PlayerView),
                 new CameraMoveUpdater(_gameModel, _gameView.CameraView),
-                new FinderTargetUpdater(_gameModel, _gameView),
                 new IdleStateUpdater(_gameModel, _gameView),
                 new PursuitStateUpdater(_gameModel, _gameView),
                 new AttackStateUpdater(_gameModel, _gameView)
