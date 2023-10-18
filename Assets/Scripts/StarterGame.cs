@@ -23,15 +23,18 @@ namespace Assets.Scripts
             _presenters = new List<IPresenter>
             {
                 new JoystickPresenter(_gameModel, _gameView.Joystick),
-                new EnemyInitializePresenter(_gameModel, _gameView),
-                new CreatingEnemyPresenter(_gameModel, _gameView)
+                new CreatingEnemyPresenter(_gameModel, _gameView),
+                new InitializePresenter(_gameModel, _gameView)
             };
 
             _updaters = new List<IUpdater>
             {
                 new CharacterMovementUpdater(_gameModel, _gameView.PlayerView),
                 new CameraMoveUpdater(_gameModel, _gameView.CameraView),
+                new FinderTargetUpdater(_gameModel, _gameView),
                 new IdleStateUpdater(_gameModel, _gameView),
+                new PursuitStateUpdater(_gameModel, _gameView),
+                new AttackStateUpdater(_gameModel, _gameView)
             };
         }
 

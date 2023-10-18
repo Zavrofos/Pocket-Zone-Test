@@ -38,15 +38,7 @@ namespace Assets.Scripts.Presenters
                     EnemyView enemyView = enemyObj.GetComponent<EnemyView>();
                     enemyView.Id = enemy.Id;
                     _gameView.ActiveEnemy.Add(enemyView.Id, enemyView);
-
-                    if(enemyPrefab.Type == EnemyType.Enemy)
-                    {
-                        enemy.points = new Vector3[enemyView.PatrollPoints.Length];
-                        for(int i = 0; i < enemy.points.Length; i++)
-                        {
-                            enemy.points[i] = enemyView.PatrollPoints[i].position;
-                        }
-                    }
+                    enemy.points = _gameModel.SpawnPointsCollection.SpawnPointsAndPatrolling[enemy.InitialPosition];
                     break;
                 }
             }
@@ -54,6 +46,7 @@ namespace Assets.Scripts.Presenters
 
         private void OnRemoved(Enemy enemy)
         {
+            _gameModel.SpawnPointsCollection.ReturnFreeposition(enemy.InitialPosition);
             _gameView.ActiveEnemy[enemy.Id].Destroy();
             _gameView.ActiveEnemy.Remove(enemy.Id);
         }

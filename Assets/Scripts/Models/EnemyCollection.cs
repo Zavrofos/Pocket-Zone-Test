@@ -7,16 +7,16 @@ namespace Assets.Scripts.Models
 {
     public class EnemyCollection 
     {
-        public List<Vector3> PositiontsToSpawnEnemies;
         public Dictionary<int, Enemy> ActiveEnemy;
+
         public event Action<Enemy> CreatedEnemy;
         public event Action<Enemy> Removed;
+
         private int id;
 
 
         public EnemyCollection()
         {
-            PositiontsToSpawnEnemies = new List<Vector3>();
             ActiveEnemy = new Dictionary<int, Enemy>();
         }
 
@@ -46,7 +46,6 @@ namespace Assets.Scripts.Models
 
         public void Remove(Enemy enemy)
         {
-            PositiontsToSpawnEnemies.Add(enemy.InitialPosition);
             ActiveEnemy.Remove(enemy.Id);
             Removed?.Invoke(enemy);
         }

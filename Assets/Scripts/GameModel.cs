@@ -8,7 +8,7 @@ namespace Assets.Scripts
         public readonly InputModel Input;
         public readonly PlayerModel Player;
         public readonly EnemyCollection EnemyCollection;
-
+        public readonly SpawnPointsCollection SpawnPointsCollection;
 
         public event Action Initialized;
         
@@ -17,6 +17,7 @@ namespace Assets.Scripts
             Input = new InputModel();
             Player = new PlayerModel();
             EnemyCollection = new EnemyCollection();
+            SpawnPointsCollection = new SpawnPointsCollection();
         }
 
         public void Initialize()
