@@ -2,7 +2,6 @@
 {
     public enum EnemyType 
     {
-        EnemyOne,
-        EnemyTwo
+        Enemy
     }
 }

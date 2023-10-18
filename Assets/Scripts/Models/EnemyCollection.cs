@@ -8,29 +8,26 @@ namespace Assets.Scripts.Models
     public class EnemyCollection 
     {
         public List<Vector3> PositiontsToSpawnEnemies;
-        public Dictionary<int, IEnemy> ActiveEnemy;
-        public event Action<IEnemy> CreatedEnemy;
-        public event Action<IEnemy> Removed;
+        public Dictionary<int, Enemy> ActiveEnemy;
+        public event Action<Enemy> CreatedEnemy;
+        public event Action<Enemy> Removed;
         private int id;
 
 
         public EnemyCollection()
         {
             PositiontsToSpawnEnemies = new List<Vector3>();
-            ActiveEnemy = new Dictionary<int, IEnemy>();
+            ActiveEnemy = new Dictionary<int, Enemy>();
         }
 
         public void CreateEnemy(EnemyType type, Vector3 position)
         {
-            IEnemy enemy;
+            Enemy enemy;
 
             switch(type)
             {
-                case EnemyType.EnemyOne:
-                    enemy = new EnemyOne(id, position, type);
-                    break;
-                case EnemyType.EnemyTwo :
-                    enemy = new EnemyTwo(id, position, type); 
+                case EnemyType.Enemy:
+                    enemy = new Enemy(id, position, type);
                     break;
                 default:
                     enemy = null;
@@ -47,7 +44,7 @@ namespace Assets.Scripts.Models
             CreatedEnemy?.Invoke(enemy);
         }
 
-        public void Remove(IEnemy enemy)
+        public void Remove(Enemy enemy)
         {
             PositiontsToSpawnEnemies.Add(enemy.InitialPosition);
             ActiveEnemy.Remove(enemy.Id);

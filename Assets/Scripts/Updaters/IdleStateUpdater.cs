@@ -11,7 +11,6 @@ namespace Assets.Scripts.Updaters
     {
         private GameModel _gameModel;
         private GameView _gameView;
-
         public IdleStateUpdater(GameModel gameModel, GameView gameView)
         {
             _gameModel = gameModel;
@@ -27,28 +26,19 @@ namespace Assets.Scripts.Updaters
                     continue;
                 }
 
-                if(enemy.Value is EnemyOne)
+                EnemyView enemyOneView = _gameView.ActiveEnemy[enemy.Value.Id];
+                if (Vector3.Distance(enemyOneView.transform.position, enemy.Value.points[enemy.Value.currentPoint]) > 0.3f)
                 {
-                    EnemyOneView enemyOneView = (EnemyOneView)_gameView.ActiveEnemy[enemy.Value.Id];
-                    EnemyOne enemyOne = (EnemyOne)enemy.Value;
-                    if (Vector3.Distance(enemyOneView.transform.position, enemyOne.points[enemyOne.currentPoint]) > 0.3f)
-                    {
-                        enemyOne.currentDirection = (enemyOne.points[enemyOne.currentPoint] - enemyOneView.transform.position).normalized;
-                        enemyOneView.Rigidbody.velocity = enemyOne.currentDirection * enemyOne.Speed;
-                    }
-                    else if (enemyOne.currentPoint == enemyOne.points.Length - 1)
-                    {
-                        enemyOne.currentPoint = 0;
-                    }
-                    else
-                    {
-                        enemyOne.currentPoint++;
-                    }
+                    enemy.Value.currentDirection = (enemy.Value.points[enemy.Value.currentPoint] - enemyOneView.transform.position).normalized;
+                    enemyOneView.Rigidbody.velocity = enemy.Value.currentDirection * enemy.Value.Speed;
                 }
-
-                if (enemy.Value is EnemyTwo)
+                else if (enemy.Value.currentPoint == enemy.Value.points.Length - 1)
                 {
-
+                    enemy.Value.currentPoint = 0;
+                }
+                else
+                {
+                    enemy.Value.currentPoint++;
                 }
             }
         }

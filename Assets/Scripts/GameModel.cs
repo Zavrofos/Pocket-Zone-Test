@@ -9,6 +9,7 @@ namespace Assets.Scripts
         public readonly PlayerModel Player;
         public readonly EnemyCollection EnemyCollection;
 
+
         public event Action Initialized;
         
         public GameModel()

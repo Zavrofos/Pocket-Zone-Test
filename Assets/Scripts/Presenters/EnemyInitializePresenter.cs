@@ -32,17 +32,9 @@ namespace Assets.Scripts.Presenters
                 _gameModel.EnemyCollection.PositiontsToSpawnEnemies.Add(point.position);
             }
 
-            //for(int i = 0; i < 3; i++)
-            //{
-            //    var positiontsToSpawnEnemies = _gameModel.EnemyCollection.PositiontsToSpawnEnemies;
-            //    var index = Random.Range(0, positiontsToSpawnEnemies.Count);
-            //    var position = positiontsToSpawnEnemies[index];
-            //    positiontsToSpawnEnemies.Remove(position);
-            //    _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyPatrolling, position);
-            //}
-            _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyOne, GetFreePosition());
-            _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyTwo, GetFreePosition());
-            _gameModel.EnemyCollection.CreateEnemy(EnemyType.EnemyOne, GetFreePosition());
+            _gameModel.EnemyCollection.CreateEnemy(EnemyType.Enemy, GetFreePosition());
+            _gameModel.EnemyCollection.CreateEnemy(EnemyType.Enemy, GetFreePosition());
+            _gameModel.EnemyCollection.CreateEnemy(EnemyType.Enemy, GetFreePosition());
         }
 
         private Vector3 GetFreePosition()

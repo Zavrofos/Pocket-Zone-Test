@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Views
 {
-    public class EnemyOneView : MonoBehaviour, IEnemyView
+    public class EnemyView : MonoBehaviour
     {
         [SerializeField] private Rigidbody2D _rigidbody;
         [SerializeField] private Transform[] _patrollPoints;
@@ -11,7 +11,7 @@ namespace Assets.Scripts.Views
         public Rigidbody2D Rigidbody => _rigidbody;
         public Transform Transform => transform;
         public Transform[] PatrollPoints => _patrollPoints;
-        int IEnemyView.Id { get => _id; set => _id = value; }
+        public int Id { get => _id; set => _id = value; }
         
         public void Destroy()
         {

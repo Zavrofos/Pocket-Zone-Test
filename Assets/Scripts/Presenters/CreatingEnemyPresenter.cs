@@ -28,35 +28,31 @@ namespace Assets.Scripts.Presenters
             _gameModel.EnemyCollection.Removed -= OnRemoved;
         }
 
-        private void OnCreate(IEnemy enemy)
+        private void OnCreate(Enemy enemy)
         {
             foreach(var enemyPrefab in _gameView.EnemyPrefabs)
             {
                 if(enemyPrefab.Type == enemy.Type)
                 {
                     GameObject enemyObj = Object.Instantiate(enemyPrefab.Prefab, enemy.InitialPosition, Quaternion.identity);
-                    IEnemyView enemyView = enemyObj.GetComponent<IEnemyView>();
+                    EnemyView enemyView = enemyObj.GetComponent<EnemyView>();
                     enemyView.Id = enemy.Id;
                     _gameView.ActiveEnemy.Add(enemyView.Id, enemyView);
 
-                    if(enemyPrefab.Type == EnemyType.EnemyOne)
+                    if(enemyPrefab.Type == EnemyType.Enemy)
                     {
-                        EnemyOneView enemyOneView = (EnemyOneView)enemyView;
-                        EnemyOne enemyOne = (EnemyOne)enemy;
-                        enemyOne.points = new Vector3[enemyOneView.PatrollPoints.Length];
-
-                        for(int i = 0; i < enemyOne.points.Length; i++)
+                        enemy.points = new Vector3[enemyView.PatrollPoints.Length];
+                        for(int i = 0; i < enemy.points.Length; i++)
                         {
-                            enemyOne.points[i] = enemyOneView.PatrollPoints[i].position;
+                            enemy.points[i] = enemyView.PatrollPoints[i].position;
                         }
                     }
-
                     break;
                 }
             }
         }
 
-        private void OnRemoved(IEnemy enemy)
+        private void OnRemoved(Enemy enemy)
         {
             _gameView.ActiveEnemy[enemy.Id].Destroy();
             _gameView.ActiveEnemy.Remove(enemy.Id);

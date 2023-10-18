@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Models
 { 
-    public class EnemyOne : IEnemy
+    public class Enemy
     {
         public EnemyType Type => _type;
         public int Id => _id;
@@ -27,7 +27,7 @@ namespace Assets.Scripts.Models
         public Vector3 currentDirection;
         public int currentPoint;
 
-        public EnemyOne(int id, Vector3 initialPosition, EnemyType type)
+        public Enemy(int id, Vector3 initialPosition, EnemyType type)
         {
             _id = id;
             _initialPosition = initialPosition;

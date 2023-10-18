@@ -2,7 +2,6 @@
 {
     public enum EnemyState 
     {
-        Idle,
-        Attack
+        Idle
     }
 }
