@@ -74,6 +74,8 @@ namespace Assets.Scripts.Presenters
             {
                 presenter.Unsubscribe();
             }
+
+            _enemiesPresenters.Remove(enemy);
         }
     }
 }
